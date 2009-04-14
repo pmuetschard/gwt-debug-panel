@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+Copyright 2009 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+-->
+<project name="GWT Debug Panel" default="build" basedir=".">
+  <property name="version" value="0.0.1" />
+
+  <!-- Configure path to GWT SDK -->
+  <property name="gwt" location="gwt" />
+
+  <!-- Configure path to jMock, Hamcrest and emma (optional) -->
+  <property name="libs" location="libs" />
+
+  <path id="build.classpath">
+    <pathelement location="${gwt}/gwt-user.jar" />
+    <fileset dir="${gwt}" includes="gwt-dev*.jar" />
+    <fileset dir="${libs}" includes="*.jar" />
+  </path>
+
+  <target name="clean" description="Cleans the workspace of all build artifacts">
+    <delete dir="build"/>
+  </target>
+
+  <target name="dir.build">
+    <mkdir dir="build"/>
+  </target>
+
+  <target name="build" description="Builds everything and runs the tests" depends="package, test" />
+
+  <target name="package" description="Creates the Jar packages" depends="compile">
+    <jar destfile="build/gwt-debug-panel-${version}.jar" compress="true">
+      <fileset dir="build/classes" />
+      <fileset dir="src/main/java" />
+      <fileset dir="." includes="COPYING" />
+    </jar>
+  </target>
+
+  <target name="compile" depends="dir.build">
+    <mkdir dir="build/classes" />
+    <javac
+        classpathref="build.classpath"
+        destdir="build/classes"
+        srcdir="src/main/java"
+        debug="yes"
+        failonerror="yes"
+        source="1.5"
+        target="1.5" />
+  </target>
+
+  <target name="compile.tests" depends="package">
+    <mkdir dir="build/tests" />
+    <javac
+        destdir="build/tests"
+        srcdir="src/main/test"
+        debug="yes"
+        failonerror="yes"
+        source="1.5" 
+        target="1.5">
+      <classpath>
+        <path refid="build.classpath" />
+        <pathelement path="build/gwt-debug-panel-${version}.jar" />
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="test" depends="compile.tests" unless="${dont.test}"
+      description="Runs the tests.">
+    <junit fork="yes" forkmode="once" printsummary="yes" showoutput="yes">
+      <classpath>
+        <path refid="build.classpath" />
+        <pathelement path="build/gwt-debug-panel-${version}.jar" />
+        <pathelement path="build/tests" />
+        <pathelement path="src/main/test" />
+      </classpath>
+      <formatter type="plain" usefile="no" />
+      <batchtest haltonfailure="yes">
+        <fileset dir="src/main/test">
+         <include name="**/*Test.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <target name="example" depends="package, compile.example"
+      description="Runs the example in hosted mode.">
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.HostedMode">
+      <classpath>
+        <path refid="build.classpath" />
+        <pathelement path="build/example" />
+        <pathelement path="build/gwt-debug-panel-${version}.jar" />
+        <pathelement location="src/example/java" />
+        <pathelement path="${java.home}/../lib/tools.jar" />
+      </classpath>
+      <jvmarg value="-Xmx256M" />
+      <arg value="-startupUrl" />
+      <arg value="app.jsp" />
+      <arg value="-war" />
+      <arg value="src/example/war" />
+      <arg value="com.example.app.MyMainApp" />
+      <arg value="com.example.panel.MyDebugPanel" />
+    </java>
+  </target>
+
+  <target name="compile.example" depends="package">
+    <mkdir dir="build/example" />
+    <javac
+        destdir="build/example"
+        srcdir="src/example/java"
+        debug="yes"
+        failonerror="yes"
+        source="1.5"
+        target="1.5">
+      <classpath>
+        <path refid="build.classpath" />
+        <pathelement path="build/gwt-debug-panel-${version}.jar" />
+      </classpath>
+    </javac>
+  </target>
+
+  <taskdef resource="emma_ant.properties" classpathref="build.classpath" />
+
+  <target name="coverage" depends="compile.tests"
+      description="Runs the tests and produces a coverage report">
+    <property name="coverage.dir" value="build/coverage" />
+    <property name="out.instr.dir" value="${coverage.dir}/classes" />
+    <mkdir dir="${out.instr.dir}" />
+
+    <emma>
+      <instr
+          destdir="${out.instr.dir}"
+          metadatafile="${coverage.dir}/metadata.emma"
+          merge="true">
+        <instrpath>
+          <pathelement path="build/classes" />
+        </instrpath>
+      </instr>
+    </emma>
+
+    <junit fork="yes" forkmode="once" printsummary="yes" showoutput="yes">
+      <classpath>
+        <path refid="build.classpath" />
+        <pathelement path="${coverage.dir}/classes" />
+        <pathelement path="build/classes" />
+        <pathelement path="build/tests" />
+        <pathelement path="src/main/java" />
+        <pathelement path="src/main/test" />
+      </classpath>
+      <formatter type="plain" usefile="no" />
+      <batchtest haltonfailure="yes">
+        <fileset dir="src/main/test">
+         <include name="**/*Test.java"/>
+        </fileset>
+      </batchtest>
+      <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+      <jvmarg value="-Demma.coverage.out.merge=true" />
+    </junit>
+
+    <emma>
+      <report sourcepath="src/main/java">
+        <fileset dir="${coverage.dir}">
+          <include name="*.emma" />
+        </fileset>
+        <txt outfile="${coverage.dir}/coverage.txt" />
+        <html outfile="${coverage.dir}/coverage.html" />
+      </report>
+    </emma>
+  </target>
+
+</project>

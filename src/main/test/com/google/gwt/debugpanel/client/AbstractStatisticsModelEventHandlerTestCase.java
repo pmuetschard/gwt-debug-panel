@@ -46,34 +46,34 @@ public abstract class AbstractStatisticsModelEventHandlerTestCase extends TestCa
     root = model.getRoot();
     module = "module";
     Utils.setInstance(new Utils.Util() {
-      @Override
+      //@Override
       public String getStylePrefix() {
         return "";
       }
 
-      @Override
+      //@Override
       public double currentTimeMillis() {
         return System.currentTimeMillis();
       }
 
-      @Override
+      //@Override
       public String formatDate(double time) {
         fail("Unexpected call to formatAsDate");
         return null;
       }
 
-      @Override
+      //@Override
       public String formatClassName(String className) {
         return className;
       }
 
-      @Override
+      //@Override
       public ButtonBase createTextButton(String text, ClickHandler handler) {
         fail("Unexpected call to createTextButton");
         return null;
       }
 
-      @Override
+      //@Override
       public ButtonBase createMenuButton(String text, ClickHandler handler) {
         fail("Unexpected call to createMenuButton");
         return null;
@@ -141,32 +141,32 @@ public abstract class AbstractStatisticsModelEventHandlerTestCase extends TestCa
       this.type = type;
     }
 
-    @Override
+    //@Override
     public String getModuleName() {
       return moduleName;
     }
 
-    @Override
+    //@Override
     public String getSubSystem() {
       return subSystem;
     }
 
-    @Override
+    //@Override
     public String getEventGroupKey() {
       return groupKey;
     }
 
-    @Override
+    //@Override
     public double getMillis() {
       return millis;
     }
 
-    @Override
+    //@Override
     public Iterator<String> getExtraParameterNames() {
       return Arrays.asList("type", "className").iterator();
     }
 
-    @Override
+    //@Override
     public String getExtraParameter(String name) {
       if ("type".equals(name)) {
         return type;

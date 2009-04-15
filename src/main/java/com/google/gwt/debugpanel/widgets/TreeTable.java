@@ -81,7 +81,7 @@ public class TreeTable extends Composite {
     items.put(rootNode, root);
 
     model.addTreeTableModelListener(new TreeTableModelListener() {
-      @Override
+      //@Override
       public void nodeAdded(Object parent, Object node, int index) {
         TreeTableItem item = items.get(parent);
         if (item != null) {
@@ -89,7 +89,7 @@ public class TreeTable extends Composite {
         }
       }
 
-      @Override
+      //@Override
       public void nodeRemoved(Object parent, Object node, int index) {
         TreeTableItem item = items.get(parent);
         if (item != null) {
@@ -98,7 +98,7 @@ public class TreeTable extends Composite {
         }
       }
 
-      @Override
+      //@Override
       public void valueChanged(Object node, int columnIndex) {
         TreeTableItem item = items.get(node);
         if (item != null && item.isShown()) {
@@ -258,7 +258,7 @@ public class TreeTable extends Composite {
         widget = new ItemWidget(level);
         widget.setImage(images.treeLeaf());
         widget.setClickHandler(new ClickHandler() {
-          @Override
+          //@Override
           public void onClick(ClickEvent event) {
             toggle();
           }

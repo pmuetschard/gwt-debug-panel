@@ -43,17 +43,17 @@ public class CookieView extends Composite {
     initWidget(table = new FlexTable());
     build();
     model.addCookieListener(new CookieModelListener() {
-      @Override
+      //@Override
       public void cookieAdded(String name, String value) {
         added(name, value);
       }
 
-      @Override
+      //@Override
       public void cookieChanged(String name, String value) {
         updated(name, value);
       }
 
-      @Override
+      //@Override
       public void cookieRemoved(String name) {
         removed(name);
       }
@@ -76,7 +76,7 @@ public class CookieView extends Composite {
     table.setText(idx + 1, 0, name);
     table.setText(idx + 1, 1, value);
     table.setWidget(idx + 1, 2, new CommandLink("Remove", new Command() {
-      @Override
+      //@Override
       public void execute() {
         removeCookie(name);
       }
@@ -121,7 +121,7 @@ public class CookieView extends Composite {
 
     // Add footer row.
     table.setWidget(1, 0, new CommandLink("Add a Cookie", new Command() {
-      @Override
+      //@Override
       public void execute() {
         showAdd();
       }
@@ -140,7 +140,7 @@ public class CookieView extends Composite {
     final TextBox name = new TextBox();
     final TextBox value = new TextBox();
     final ButtonBase button = Utils.createTextButton("Add", new ClickHandler() {
-      @Override
+      //@Override
       public void onClick(ClickEvent event) {
         String n = name.getText();
         String v = value.getText();

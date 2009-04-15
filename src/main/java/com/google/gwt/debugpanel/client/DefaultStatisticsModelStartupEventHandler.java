@@ -43,7 +43,7 @@ public class DefaultStatisticsModelStartupEventHandler extends AbstractStatistic
     startups = new HashMap<String, StartUpTree>();
   }
 
-  @Override
+  //@Override
   public boolean handle(GwtDebugStatisticsModel model, StatisticsEvent event) {
     if (STARTUP.equals(event.getSubSystem())) {
       String module = event.getModuleName();

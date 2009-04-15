@@ -39,27 +39,27 @@ public class DebugPanelFilterTrailTest extends AbstractDebugPanelGwtTestCase {
       private DebugPanelFilterModelListenerChain listener;
       private boolean[] status = new boolean[filters.length];
 
-      @Override
+      //@Override
       public int getCountOfAvailableFilters() {
         return filters.length;
       }
 
-      @Override
+      //@Override
       public DebugPanelFilter getFilter(int idx) {
         return filters[idx];
       }
 
-      @Override
+      //@Override
       public DebugPanelFilter.Config getFilterConfig(int idx) {
         return filters[idx].getConfig();
       }
 
-      @Override
+      //@Override
       public boolean isFilterActive(int idx) {
         return status[idx];
       }
 
-      @Override
+      //@Override
       public void setFilterActive(int idx, boolean active) {
         if (status[idx] != active) {
           status[idx] = active;
@@ -69,12 +69,12 @@ public class DebugPanelFilterTrailTest extends AbstractDebugPanelGwtTestCase {
         }
       }
 
-      @Override
+      //@Override
       public void addListener(DebugPanelFilterModelListener listener) {
         this.listener = new DebugPanelFilterModelListenerChain(this.listener, listener);
       }
 
-      @Override
+      //@Override
       public void removeListener(DebugPanelFilterModelListener listener) {
         this.listener = this.listener.remove(listener);
       }

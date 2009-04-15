@@ -40,7 +40,7 @@ public class GwtStatisticsEventSystemTest extends AbstractDebugPanelGwtTestCase 
   public void testRegisterAndDispatch() {
     final int[] invokeCount = new int[1];
     system.addListener(new StatisticsEventListener() {
-      @Override
+      //@Override
       public void onStatisticsEvent(StatisticsEvent event) {
         assertEquals("event1", event.getModuleName());
         invokeCount[0]++;
@@ -57,7 +57,7 @@ public class GwtStatisticsEventSystemTest extends AbstractDebugPanelGwtTestCase 
 
     final int[] invokeCount = new int[1];
     system.addListener(new StatisticsEventListener() {
-      @Override
+      //@Override
       public void onStatisticsEvent(StatisticsEvent event) {
         if (invokeCount[0] == 0) {
           assertEquals("event1", event.getModuleName());
@@ -74,7 +74,7 @@ public class GwtStatisticsEventSystemTest extends AbstractDebugPanelGwtTestCase 
     dispatch(event("event1"));
     dispatch(event("event2"));
     system.addListener(new StatisticsEventListener() {
-      @Override
+      //@Override
       public void onStatisticsEvent(StatisticsEvent event) {
         fail("No invocation expected when replay is false.");
       }
@@ -103,7 +103,7 @@ public class GwtStatisticsEventSystemTest extends AbstractDebugPanelGwtTestCase 
   public void testHooksIntoGwtStatsSystem() {
     final int[] invokeCount = new int[1];
     system.addListener(new StatisticsEventListener() {
-      @Override
+      //@Override
       public void onStatisticsEvent(StatisticsEvent event) {
         invokeCount[0]++;
       }
@@ -118,7 +118,7 @@ public class GwtStatisticsEventSystemTest extends AbstractDebugPanelGwtTestCase 
   public void testEventsAreIgnoredWhenDisabled() {
     system = new GwtStatisticsEventSystem();
     system.addListener(new StatisticsEventListener() {
-      @Override
+      //@Override
       public void onStatisticsEvent(StatisticsEvent event) {
         fail("system is disabled, not expecting any events");
       }
@@ -142,7 +142,7 @@ public class GwtStatisticsEventSystemTest extends AbstractDebugPanelGwtTestCase 
 
   public void testNoEventsAreReceivedAfterRemovingListener() {
     StatisticsEventListener listener = new StatisticsEventListener() {
-      @Override
+      //@Override
       public void onStatisticsEvent(StatisticsEvent event) {
         fail("did not expect any events");
       }

@@ -39,7 +39,7 @@ public class DebugPanelRawLogWidget extends FlexTable implements StatisticsEvent
     getRowFormatter().setStyleName(0, Utils.style() + "-logHeader");
   }
 
-  @Override
+  //@Override
   public void onStatisticsEvent(StatisticsEvent event) {
     int row = getRowCount();
     setText(row, 0, event.getModuleName());

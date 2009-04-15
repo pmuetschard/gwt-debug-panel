@@ -47,7 +47,7 @@ public abstract class DelayedDebugPanelComponent
 
   protected abstract Widget createWidget();
 
-  @Override
+  //@Override
   public final boolean isVisibleOnStartup() {
     return false;
   }

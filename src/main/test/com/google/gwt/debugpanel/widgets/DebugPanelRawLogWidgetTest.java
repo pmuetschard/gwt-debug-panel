@@ -85,32 +85,32 @@ public class DebugPanelRawLogWidgetTest extends AbstractDebugPanelGwtTestCase {
       this.extraParameters = extraParameters;
     }
 
-    @Override
+    //@Override
     public String getModuleName() {
       return moduleName;
     }
 
-    @Override
+    //@Override
     public String getSubSystem() {
       return null;
     }
 
-    @Override
+    //@Override
     public String getEventGroupKey() {
       return null;
     }
 
-    @Override
+    //@Override
     public double getMillis() {
       return 0;
     }
 
-    @Override
+    //@Override
     public Iterator<String> getExtraParameterNames() {
       return Arrays.asList(extraParameters[0]).iterator();
     }
 
-    @Override
+    //@Override
     public String getExtraParameter(String name) {
       for (int i = 0; i < extraParameters[0].length; i++) {
         if (extraParameters[0][i].equals(name)) {

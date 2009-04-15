@@ -31,7 +31,7 @@ public class DebugStatisticsModelTest extends TestCase {
   protected void setUp() throws Exception {
     super.setUp();
     model = new DebugStatisticsModel<Value>() {
-      @Override
+      //@Override
       public void onStatisticsEvent(StatisticsEvent event) {
         fail("Unexpected call to onStatisticsEvent");
       }
@@ -132,14 +132,14 @@ public class DebugStatisticsModelTest extends TestCase {
     public Value value;
     public boolean newValueInvoked, valueChangedInvoked;
 
-    @Override
+    //@Override
     public void nodeAdded(Node<Value> p, Node<Value> n, int idx) {
       parent = p;
       node = n;
       newValueInvoked = true;
     }
 
-    @Override
+    //@Override
     public void nodeChanged(Node<Value> n, Value v) {
       node = n;
       value = v;

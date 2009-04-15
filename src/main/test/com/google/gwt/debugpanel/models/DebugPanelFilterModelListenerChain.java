@@ -28,7 +28,7 @@ public class DebugPanelFilterModelListenerChain implements DebugPanelFilterModel
     this.listener = listener;
   }
 
-  @Override
+  //@Override
   public void filterStatusChanged(DebugPanelFilter filter, int idx, boolean active) {
     listener.filterStatusChanged(filter, idx, active);
     if (parent != null) {

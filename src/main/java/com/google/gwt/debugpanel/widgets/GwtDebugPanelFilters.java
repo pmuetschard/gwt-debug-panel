@@ -73,27 +73,27 @@ public class GwtDebugPanelFilters {
       setTime(null, null);
     }
 
-    @Override
+    //@Override
     public String getMenuItemLabel() {
       return "by Time";
     }
 
-    @Override
+    //@Override
     public String getSettingsTitle() {
       return "Time Filter Settings";
     }
 
-    @Override
+    //@Override
     public String getDescription() {
       return "Filters events based on at what time an event is raised. Blank means unbounded.";
     }
 
-    @Override
+    //@Override
     public Config getConfig() {
       return config;
     }
 
-    @Override
+    //@Override
     public boolean include(DebugStatisticsValue value) {
       if (start == null && end == null) {
         return true;
@@ -103,7 +103,7 @@ public class GwtDebugPanelFilters {
           (end == null || endTime <= end.getTime());
     }
 
-    @Override
+    //@Override
     public boolean processChildren() {
       return false;
     }
@@ -140,7 +140,7 @@ public class GwtDebugPanelFilters {
         grid.setWidget(1, 2, createComment("hh:mm:ss.SSS"));
         grid.setWidget(1, 3, createNowLink(endDate));
         addValueChangeHandler(new ValueChangeHandler<Config>() {
-          @Override
+          //@Override
           public void onValueChange(ValueChangeEvent<Config> event) {
             Date date = getStart();
             startDate.setText(date == null ? "" : FORMAT.format(date));
@@ -156,7 +156,7 @@ public class GwtDebugPanelFilters {
 
       private Widget createNowLink(final TextBox textbox) {
         return new CommandLink("Now", new Command() {
-          @Override
+          //@Override
           public void execute() {
             textbox.setText(FORMAT.format(new Date()));
           }
@@ -168,7 +168,7 @@ public class GwtDebugPanelFilters {
         return this;
       }
 
-      @Override
+      //@Override
       public Widget getWidget() {
         return grid;
       }
@@ -185,13 +185,13 @@ public class GwtDebugPanelFilters {
         }
       }
 
-      @Override
+      //@Override
       public boolean onApply() {
         setTime(parseDate(startDate.getText()), parseDate(endDate.getText()));
         return getStart() != null || getEnd() != null;
       }
 
-      @Override
+      //@Override
       public void onRemove() {
         setTime(null, null);
       }
@@ -210,27 +210,27 @@ public class GwtDebugPanelFilters {
       setDuration(0, 0);
     }
 
-    @Override
+    //@Override
     public String getMenuItemLabel() {
       return "by Duration";
     }
 
-    @Override
+    //@Override
     public String getSettingsTitle() {
       return "Duration Filter Settings";
     }
 
-    @Override
+    //@Override
     public String getDescription() {
       return "Filters events based on the duration the action took. Blank or 0 means unbounded.";
     }
 
-    @Override
+    //@Override
     public Config getConfig() {
       return config;
     }
 
-    @Override
+    //@Override
     public boolean include(DebugStatisticsValue value) {
       if (minDuration <= 0 && maxDuration <= 0) {
         return true;
@@ -241,7 +241,7 @@ public class GwtDebugPanelFilters {
       
     }
 
-    @Override
+    //@Override
     public boolean processChildren() {
       return true;
     }
@@ -274,7 +274,7 @@ public class GwtDebugPanelFilters {
         grid.setWidget(1, 0, createFormLabel("Maximum"));
         grid.setWidget(1, 1, max = createTextBox(5));
         addValueChangeHandler(new ValueChangeHandler<Config>() {
-          @Override
+          //@Override
           public void onValueChange(ValueChangeEvent<Config> event) {
             min.setText(Integer.toString(getMinDuration()));
             max.setText(Integer.toString(getMaxDuration()));
@@ -287,7 +287,7 @@ public class GwtDebugPanelFilters {
         return this;
       }
 
-      @Override
+      //@Override
       public Widget getWidget() {
         return grid;
       }
@@ -300,13 +300,13 @@ public class GwtDebugPanelFilters {
         }
       }
 
-      @Override
+      //@Override
       public boolean onApply() {
         setDuration(parse(min.getText()), parse(max.getText()));
         return getMinDuration() > 0 || getMaxDuration() > 0;
       }
 
-      @Override
+      //@Override
       public void onRemove() {
         setDuration(0, 0);
       }
@@ -325,27 +325,27 @@ public class GwtDebugPanelFilters {
       pattern = null;
     }
 
-    @Override
+    //@Override
     public String getMenuItemLabel() {
       return "by RPC Type";
     }
 
-    @Override
+    //@Override
     public String getSettingsTitle() {
       return "RPC Filter Settings";
     }
 
-    @Override
+    //@Override
     public String getDescription() {
       return "Filters events based on the RPC the belongs to.";
     }
 
-    @Override
+    //@Override
     public Config getConfig() {
       return config;
     }
 
-    @Override
+    //@Override
     public boolean include(DebugStatisticsValue value) {
       if (pattern == null || pattern.length() == 0) {
         return true;
@@ -356,7 +356,7 @@ public class GwtDebugPanelFilters {
       return false;
     }
 
-    @Override
+    //@Override
     public boolean processChildren() {
       return false;
     }
@@ -382,7 +382,7 @@ public class GwtDebugPanelFilters {
         panel.add(createFormLabel("RPC Pattern"));
         panel.add(textbox = createTextBox(20));
         addValueChangeHandler(new ValueChangeHandler<Config>() {
-          @Override
+          //@Override
           public void onValueChange(ValueChangeEvent<Config> event) {
             textbox.setText(getPattern());
           }
@@ -394,18 +394,18 @@ public class GwtDebugPanelFilters {
         return this;
       }
 
-      @Override
+      //@Override
       public Widget getWidget() {
         return panel;
       }
 
-      @Override
+      //@Override
       public boolean onApply() {
         setPattern(textbox.getText().trim());
         return getPattern().length() > 0;
       }
 
-      @Override
+      //@Override
       public void onRemove() {
         setPattern(null);
       }

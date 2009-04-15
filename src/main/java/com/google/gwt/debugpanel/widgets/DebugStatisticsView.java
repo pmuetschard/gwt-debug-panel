@@ -53,7 +53,7 @@ public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extend
 
     updateFilter();
     filters.addListener(new DebugPanelFilterModelListener() {
-      @Override
+      //@Override
       public void filterStatusChanged(DebugPanelFilter filter, int idx, boolean active) {
         updateFilter();
         refilter(getRoot(), true);
@@ -71,7 +71,7 @@ public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extend
     VerticalPanel panel = new VerticalPanel();
     panel.add(new DebugPanelFilterWidget(filters));
     panel.add(new TreeTable(this, null, new TreeTable.CellFormatter() {
-          @Override
+          //@Override
           public String getCellStyleName(Object node, int columnIndex) {
             if (columnIndex == 0) {
               return Utils.style() + "-tree";
@@ -98,22 +98,22 @@ public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extend
     }
   }
 
-  @Override
+  //@Override
   public Object getRoot() {
     return rootNode;
   }
 
-  @Override
+  //@Override
   public int getChildCount(Object parentNode) {
     return ((Node<T>) parentNode).getChildCount(false);
   }
 
-  @Override
+  //@Override
   public Object getChild(Object parentNode, int index) {
     return ((Node<T>) parentNode).getChild(index, false);
   }
 
-  @Override
+  //@Override
   public int getColumnCount() {
     return 5 + getExtraColumnCount();
   }
@@ -123,7 +123,7 @@ public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extend
   protected abstract String getExtraColumnName(int columnIndex);
   protected abstract Object getExtraColumnValue(T value, int columnIndex);
 
-  @Override
+  //@Override
   public String getColumnName(int columnIndex) {
     if (columnIndex >= 0 && columnIndex < 5) {
       switch (columnIndex) {
@@ -142,7 +142,7 @@ public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extend
     throw new IllegalArgumentException("Invalid column index: " + columnIndex);
   }
 
-  @Override
+  //@Override
   public Object getValueAt(Object node, int columnIndex) {
     Node<T> n = (Node<T>) node;
     if (columnIndex >= 0 && columnIndex < 5) {
@@ -162,17 +162,17 @@ public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extend
     throw new IllegalArgumentException("Invalid column index: " + columnIndex);
   }
 
-  @Override
+  //@Override
   public void addTreeTableModelListener(TreeTableModelListener listener) {
     listeners.add(listener);
   }
 
-  @Override
+  //@Override
   public void removeTreeTableModelListener(TreeTableModelListener listener) {
     listeners.remove(listener);
   }
 
-  @Override
+  //@Override
   public void nodeAdded(
       DebugStatisticsModel.Node<T> parent, DebugStatisticsModel.Node<T> node, int idx) {
     Node<T> parentNode = nodes.get(parent);
@@ -187,7 +187,7 @@ public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extend
     }
   }
 
-  @Override
+  //@Override
   public void nodeChanged(DebugStatisticsModel.Node<T> key, T value) {
     Node<T> node = nodes.get(key);
     node.setValue(value);
@@ -330,21 +330,21 @@ public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extend
     public Listeners() {
     }
 
-    @Override
+    //@Override
     public void nodeAdded(Object parent, Object node, int index) {
       for (TreeTableModelListener l : this) {
         l.nodeAdded(parent, node, index);
       }
     }
 
-    @Override
+    //@Override
     public void nodeRemoved(Object parent, Object node, int index) {
       for (TreeTableModelListener l : this) {
         l.nodeRemoved(parent, node, index);
       }
     }
 
-    @Override
+    //@Override
     public void valueChanged(Object node, int columnIndex) {
       for (TreeTableModelListener l : this) {
         l.valueChanged(node, columnIndex);

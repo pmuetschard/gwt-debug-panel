@@ -190,37 +190,37 @@ public class TreeTableTest extends AbstractDebugPanelGwtTestCase {
       this.root = root;
     }
 
-    @Override
+    //@Override
     public Object getRoot() {
       return root;
     }
 
-    @Override
+    //@Override
     public int getChildCount(Object parent) {
       return ((Tree) parent).children.size();
     }
 
-    @Override
+    //@Override
     public Object getChild(Object parent, int index) {
       return ((Tree) parent).children.get(index);
     }
 
-    @Override
+    //@Override
     public int getColumnCount() {
       return 3;
     }
 
-    @Override
+    //@Override
     public String getColumnName(int columnIndex) {
       return "Column " + columnIndex;
     }
 
-    @Override
+    //@Override
     public Object getValueAt(Object node, int columnIndex) {
       return ((Tree) node).name + columnIndex;
     }
 
-    @Override
+    //@Override
     public void addTreeTableModelListener(TreeTableModelListener l) {
       if (listener != null) {
         fail("Sorry, I only support a single listener");
@@ -228,7 +228,7 @@ public class TreeTableTest extends AbstractDebugPanelGwtTestCase {
       listener = l;
     }
 
-    @Override
+    //@Override
     public void removeTreeTableModelListener(TreeTableModelListener l) {
       if (listener == l) {
         listener = null;

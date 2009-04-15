@@ -23,6 +23,16 @@ under the License.
   <!-- Configure path to jMock, Hamcrest and emma (optional) -->
   <property name="libs" location="libs" />
 
+  <!-- On Mac OS X, we need to pass '-XstartOnFirstThread' to the JVM -->
+  <condition property="gwt.extra.arg" value="-XstartOnFirstThread">
+    <contains string="${os.name}" substring="mac" casesensitive="false" />
+  </condition>
+  <condition property="gwt.extra.arg" value="-Ddummy">
+    <not>
+      <contains string="${os.name}" substring="mac" casesensitive="false" />
+    </not>
+  </condition>
+
   <path id="build.classpath">
     <pathelement location="${gwt}/gwt-user.jar" />
     <fileset dir="${gwt}" includes="gwt-dev*.jar" />
@@ -84,6 +94,8 @@ under the License.
         <pathelement path="build/tests" />
         <pathelement path="src/main/test" />
       </classpath>
+      <jvmarg value="-Xmx256M" />
+      <jvmarg value="${gwt.extra.arg}" />
       <formatter type="plain" usefile="no" />
       <batchtest haltonfailure="yes">
         <fileset dir="src/main/test">
@@ -104,6 +116,7 @@ under the License.
         <pathelement path="${java.home}/../lib/tools.jar" />
       </classpath>
       <jvmarg value="-Xmx256M" />
+      <jvmarg value="${gwt.extra.arg}" />
       <arg value="-startupUrl" />
       <arg value="app.jsp" />
       <arg value="-war" />
@@ -157,6 +170,8 @@ under the License.
         <pathelement path="src/main/java" />
         <pathelement path="src/main/test" />
       </classpath>
+      <jvmarg value="-Xmx256M" />
+      <jvmarg value="${gwt.extra.arg}" />
       <formatter type="plain" usefile="no" />
       <batchtest haltonfailure="yes">
         <fileset dir="src/main/test">

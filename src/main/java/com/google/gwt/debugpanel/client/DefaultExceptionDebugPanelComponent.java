@@ -30,17 +30,17 @@ public class DefaultExceptionDebugPanelComponent implements DebugPanelWidget.Com
     this.model = model;
   }
 
-  @Override
+  //@Override
   public String getName() {
     return "Exceptions";
   }
 
-  @Override
+  //@Override
   public Widget getWidget() {
     return new ExceptionView(model);
   }
 
-  @Override
+  //@Override
   public boolean isVisibleOnStartup() {
     return false;
   }

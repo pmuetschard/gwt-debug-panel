@@ -89,32 +89,32 @@ public class GwtStatisticsEventTest extends AbstractDebugPanelGwtTestCase {
 
   public void testFromEvent() {
     GwtStatisticsEvent evt = GwtStatisticsEvent.fromEvent(new StatisticsEvent() {
-      @Override
+      //@Override
       public String getModuleName() {
         return "module";
       }
 
-      @Override
+      //@Override
       public String getSubSystem() {
         return "system";
       }
 
-      @Override
+      //@Override
       public String getEventGroupKey() {
         return "group";
       }
 
-      @Override
+      //@Override
       public double getMillis() {
         return 123;
       }
 
-      @Override
+      //@Override
       public Iterator<String> getExtraParameterNames() {
         return Arrays.asList("type", "className").iterator();
       }
 
-      @Override
+      //@Override
       public Object getExtraParameter(String name) {
         return name;
       }

@@ -64,14 +64,14 @@ public class DebugPanelFilterConfigWidget extends Composite {
       final DebugPanelFilterModel model, final int filter, final DebugPanelFilter.Config config) {
     final HorizontalPanel panel = new HorizontalPanel();
     removeButton = Utils.createTextButton("Remove", new ClickHandler() {
-      @Override
+      //@Override
       public void onClick(ClickEvent event) {
         model.setFilterActive(filter, false);
         config.getView().onRemove();
       }
     });
     applyButton = Utils.createTextButton("Apply", new ClickHandler() {
-      @Override
+      //@Override
       public void onClick(ClickEvent event) {
         if (!config.getView().onApply()) {
           model.setFilterActive(filter, false);
@@ -79,7 +79,7 @@ public class DebugPanelFilterConfigWidget extends Composite {
       }
     });
     addButton = Utils.createTextButton("Add", new ClickHandler() {
-      @Override
+      //@Override
       public void onClick(ClickEvent event) {
         if (config.getView().onApply()) {
           model.setFilterActive(filter, true);
@@ -93,7 +93,7 @@ public class DebugPanelFilterConfigWidget extends Composite {
       panel.add(addButton);
     }
     model.addListener(new DebugPanelFilterModelListener() {
-      @Override
+      //@Override
       public void filterStatusChanged(DebugPanelFilter f, int idx, boolean active) {
         if (idx == filter) {
           panel.clear();

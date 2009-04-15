@@ -62,44 +62,44 @@ public class DebugPanelFilterWidgetTest extends AbstractDebugPanelGwtTestCase {
   private int[] initializeWidget() {
     final int[] invokeCounts = new int[NUM_INVOKES];
     filter = new DebugPanelFilter() {
-      @Override
+      //@Override
       public String getMenuItemLabel() {
         invokeCounts[MENU_ITEM]++;
         return "menuItemLabel";
       }
 
-      @Override
+      //@Override
       public String getSettingsTitle() {
         invokeCounts[SETTINGS_TITLE]++;
         return "settingsTitle";
       }
 
-      @Override
+      //@Override
       public String getDescription() {
         invokeCounts[DESCRIPTION]++;
         return "description";
       }
 
-      @Override
+      //@Override
       public Config getConfig() {
         return new Config() {
 
           @Override
           public View getView() {
             return new View() {
-              @Override
+              //@Override
               public Widget getWidget() {
                 fail("Unexpected call to getWidget");
                 return new Label("widget");
               }
 
-              @Override
+              //@Override
               public boolean onApply() {
                 fail("Unexpected call to onApply");
                 return true;
               }
 
-              @Override
+              //@Override
               public void onRemove() {
               }
             };
@@ -107,13 +107,13 @@ public class DebugPanelFilterWidgetTest extends AbstractDebugPanelGwtTestCase {
         };
       }
 
-      @Override
+      //@Override
       public boolean include(DebugStatisticsValue value) {
         fail("Unexpected call to include!");
         return false;
       }
 
-      @Override
+      //@Override
       public boolean processChildren() {
         fail("Unexpected call to processChildren!");
         return false;
@@ -123,12 +123,12 @@ public class DebugPanelFilterWidgetTest extends AbstractDebugPanelGwtTestCase {
       private boolean active;
       private DebugPanelFilterModelListenerChain listener;
 
-      @Override
+      //@Override
       public int getCountOfAvailableFilters() {
         return 1;
       }
 
-      @Override
+      //@Override
       public DebugPanelFilter getFilter(int idx) {
         if (idx != 0) {
           fail("Invalid index: " + idx);
@@ -136,7 +136,7 @@ public class DebugPanelFilterWidgetTest extends AbstractDebugPanelGwtTestCase {
         return filter;
       }
 
-      @Override
+      //@Override
       public DebugPanelFilter.Config getFilterConfig(int idx) {
         if (idx != 0) {
           fail("Invalid index: " + idx);
@@ -144,7 +144,7 @@ public class DebugPanelFilterWidgetTest extends AbstractDebugPanelGwtTestCase {
         return filter.getConfig();
       }
 
-      @Override
+      //@Override
       public boolean isFilterActive(int idx) {
         if (idx != 0) {
           fail("Invalid index: " + idx);
@@ -152,7 +152,7 @@ public class DebugPanelFilterWidgetTest extends AbstractDebugPanelGwtTestCase {
         return active;
       }
 
-      @Override
+      //@Override
       public void setFilterActive(int idx, boolean active) {
         if (idx != 0) {
           fail("Invalid index: " + idx);
@@ -163,12 +163,12 @@ public class DebugPanelFilterWidgetTest extends AbstractDebugPanelGwtTestCase {
         }
       }
 
-      @Override
+      //@Override
       public void addListener(DebugPanelFilterModelListener listener) {
         this.listener = new DebugPanelFilterModelListenerChain(this.listener, listener);
       }
 
-      @Override
+      //@Override
       public void removeListener(DebugPanelFilterModelListener listener) {
         this.listener = this.listener.remove(listener);
       }

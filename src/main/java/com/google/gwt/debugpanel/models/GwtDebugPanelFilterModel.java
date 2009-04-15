@@ -32,22 +32,22 @@ public class GwtDebugPanelFilterModel implements DebugPanelFilterModel {
     }
   }
 
-  @Override
+  //@Override
   public int getCountOfAvailableFilters() {
     return filters.length;
   }
 
-  @Override
+  //@Override
   public DebugPanelFilter getFilter(int idx) {
     return filters[idx].filter;
   }
 
-  @Override
+  //@Override
   public boolean isFilterActive(int idx) {
     return filters[idx].active;
   }
 
-  @Override
+  //@Override
   public void setFilterActive(int idx, boolean active) {
     Filter filter = filters[idx];
     if (active != filter.active) {
@@ -56,17 +56,17 @@ public class GwtDebugPanelFilterModel implements DebugPanelFilterModel {
     }
   }
 
-  @Override
+  //@Override
   public DebugPanelFilter.Config getFilterConfig(int idx) {
     return filters[idx].filter.getConfig();
   }
 
-  @Override
+  //@Override
   public void addListener(DebugPanelFilterModelListener listener) {
     listeners.add(listener);
   }
 
-  @Override
+  //@Override
   public void removeListener(DebugPanelFilterModelListener listener) {
     listeners.remove(listener);
   }
@@ -86,7 +86,7 @@ public class GwtDebugPanelFilterModel implements DebugPanelFilterModel {
     public Listeners() {
     }
 
-    @Override
+    //@Override
     public void filterStatusChanged(DebugPanelFilter filter, int idx, boolean active) {
       for (DebugPanelFilterModelListener l : this) {
         l.filterStatusChanged(filter, idx, active);

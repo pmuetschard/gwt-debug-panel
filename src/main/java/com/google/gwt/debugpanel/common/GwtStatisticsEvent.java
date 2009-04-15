@@ -68,44 +68,45 @@ public class GwtStatisticsEvent extends JavaScriptObject /*implements Statistics
 
   public final StatisticsEvent asEvent() {
     return new StatisticsEvent() {
-      @Override
+      //@Override
       public String getModuleName() {
         return GwtStatisticsEvent.this.getModuleName();
       }
-      @Override
+      //@Override
       public String getSubSystem() {
         return GwtStatisticsEvent.this.getSubSystem();
       }
-      @Override
+      //@Override
       public String getEventGroupKey() {
         return GwtStatisticsEvent.this.getEventGroupKey();
       }
-      @Override
+      //@Override
       public double getMillis() {
         return GwtStatisticsEvent.this.getMillis();
       }
-      @Override
+      //@Override
       public Iterator<String> getExtraParameterNames() {
         final JsArrayString names = getExtraParameterNames0();
         return new Iterator<String>() {
           private int idx = 0;
-          @Override
+
+          //@Override
           public boolean hasNext() {
             return idx < names.length();
           }
 
-          @Override
+          //@Override
           public String next() {
             return names.get(idx++);
           }
 
-          @Override
+          //@Override
           public void remove() {
             throw new RuntimeException("parameter names are read-only");
           }
         };
       }
-      @Override
+      //@Override
       public Object getExtraParameter(String name) {
         return GwtStatisticsEvent.this.getExtraParameter(name);
       }

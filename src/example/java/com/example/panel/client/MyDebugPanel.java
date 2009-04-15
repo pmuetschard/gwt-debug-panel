@@ -41,7 +41,7 @@ public class MyDebugPanel implements EntryPoint, DebugPanelWidget.Listener {
   private GwtDebugStatisticsModel sm;
   private GwtExceptionModel em;
 
-  @Override
+  //@Override
   public void onModuleLoad() {
     sys = new GwtStatisticsEventSystem();
     panelComponent = new DefaultDebugStatisticsDebugPanelComponent(null);
@@ -65,7 +65,7 @@ public class MyDebugPanel implements EntryPoint, DebugPanelWidget.Listener {
         }));
   }
 
-  @Override
+  //@Override
   public void onShow() {
     panelComponent.reset(
         sm = new GwtDebugStatisticsModel(
@@ -79,7 +79,7 @@ public class MyDebugPanel implements EntryPoint, DebugPanelWidget.Listener {
     sys.enable(true);
   }
 
-  @Override
+  //@Override
   public void onReset() {
     sys.removeListener(sm);
     sys.removeListener(em);

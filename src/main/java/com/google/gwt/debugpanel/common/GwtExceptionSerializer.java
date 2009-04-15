@@ -22,7 +22,7 @@ public class GwtExceptionSerializer implements ExceptionSerializer {
   public GwtExceptionSerializer() {
   }
 
-  @Override
+  //@Override
   public ExceptionData serialize(Throwable t) {
     Throwable causeEx = t.getCause();
     ExceptionData cause = (causeEx == null) ? null : serialize(causeEx);
@@ -45,7 +45,6 @@ public class GwtExceptionSerializer implements ExceptionSerializer {
     append(result.append("   at "), trace[0]);
     for (int i = 1; i < trace.length; i++) {
       append(result.append("\n   at "), trace[i]);
-      
     }
     return result.toString();
   }

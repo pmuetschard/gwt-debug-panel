@@ -42,16 +42,16 @@ public class EchoWidget extends Composite {
     grid.setWidget(0, 1, box);
     grid.setWidget(1, 0, label("Result"));
     grid.setWidget(2, 1, new Button("Invoke", new ClickHandler() {
-      @Override
+      //@Override
       public void onClick(ClickEvent event) {
         service.echo(box.getText(), new AsyncCallback<String>() {
-          @Override
+          //@Override
           public void onFailure(Throwable caught) {
             grid.setText(1, 1, "ERROR: " + caught.toString());
             handler.handle(caught);
           }
 
-          @Override
+          //@Override
           public void onSuccess(String result) {
             grid.setText(1, 1, result);
           }

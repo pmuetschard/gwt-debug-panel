@@ -141,7 +141,7 @@ public class GwtDebugStatisticsViewTest extends AbstractDebugPanelGwtTestCase {
     public Object parent, node;
     public int index = -1;
 
-    @Override
+    //@Override
     public void nodeAdded(Object parentNode, Object childNode, int nodeIndex) {
       parent = parentNode;
       node = childNode;
@@ -149,7 +149,7 @@ public class GwtDebugStatisticsViewTest extends AbstractDebugPanelGwtTestCase {
       added++;
     }
 
-    @Override
+    //@Override
     public void nodeRemoved(Object parentNode, Object childNode, int nodeIndex) {
       parent = parentNode;
       node = childNode;
@@ -157,7 +157,7 @@ public class GwtDebugStatisticsViewTest extends AbstractDebugPanelGwtTestCase {
       removed++;
     }
 
-    @Override
+    //@Override
     public void valueChanged(Object childNode, int columnIndex) {
       node = childNode;
       index = columnIndex;

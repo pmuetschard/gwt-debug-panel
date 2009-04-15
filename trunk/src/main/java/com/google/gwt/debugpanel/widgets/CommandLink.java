@@ -43,7 +43,7 @@ public class CommandLink extends Anchor {
 
     addClickHandler(new ClickHandler() {
 
-      @Override
+      //@Override
       public void onClick(ClickEvent event) {
         execute();
       }

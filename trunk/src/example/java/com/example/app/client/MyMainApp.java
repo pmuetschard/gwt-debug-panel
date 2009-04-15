@@ -25,7 +25,7 @@ import com.google.gwt.user.client.ui.RootPanel;
  */
 public class MyMainApp implements EntryPoint {
 
-  @Override
+  //@Override
   public void onModuleLoad() {
     RootPanel.get("contents").add(
         new EchoWidget(

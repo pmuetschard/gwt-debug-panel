@@ -37,12 +37,12 @@ public class ExceptionView extends Composite {
     build();
 
     model.addListener(new ExceptionModelListener() {
-      @Override
+      //@Override
       public void exceptionAdded(int idx, ExceptionModel.ExceptionEvent ev) {
         add(idx, ev);
       }
 
-      @Override
+      //@Override
       public void exceptionRemoved(int idx) {
         remove(idx);
       }

@@ -27,7 +27,7 @@ public class GwtDebugStatisticsModel extends DebugStatisticsModel<GwtDebugStatis
     this.handlers = handlers;
   }
 
-  @Override
+  //@Override
   public void onStatisticsEvent(StatisticsEvent event) {
     GwtNode node = null;
     for (EventHandler h : handlers) {

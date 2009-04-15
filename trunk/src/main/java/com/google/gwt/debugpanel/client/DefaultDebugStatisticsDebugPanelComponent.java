@@ -35,12 +35,12 @@ public class DefaultDebugStatisticsDebugPanelComponent implements DebugPanelWidg
     this.view = null;
   }
 
-  @Override
+  //@Override
   public String getName() {
     return "Debug Panel";
   }
 
-  @Override
+  //@Override
   public Widget getWidget() {
     return getView();
   }
@@ -53,7 +53,7 @@ public class DefaultDebugStatisticsDebugPanelComponent implements DebugPanelWidg
     return view;
   }
 
-  @Override
+  //@Override
   public boolean isVisibleOnStartup() {
     return true;
   }
@@ -65,7 +65,7 @@ public class DefaultDebugStatisticsDebugPanelComponent implements DebugPanelWidg
 
   public DelayedDebugPanelComponent xmlComponent() {
     return new DelayedDebugPanelComponent() {
-      @Override
+      //@Override
       public String getName() {
         return "XML";
       }

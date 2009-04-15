@@ -75,33 +75,33 @@ public class Utils {
    * Default implementation of {@link Util}.
    */
   public static class DefaultUtil implements Util {
-    @Override
+    //@Override
     public String getStylePrefix() {
       return "DebugPanel";
     }
 
-    @Override
+    //@Override
     public double currentTimeMillis() {
       return Duration.currentTimeMillis();
     }
 
-    @Override
+    //@Override
     public native String formatDate(double time) /*-{
       var d=new Date(time),h=d.getHours(),m=d.getMinutes(),s=d.getSeconds(),l=d.getMilliseconds();
       return (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s)+"."+(l<10?"00"+l:l<100?"0"+l:l);
     }-*/;
 
-    @Override
+    //@Override
     public String formatClassName(String className) {
       return className;
     }
 
-    @Override
+    //@Override
     public ButtonBase createTextButton(String text, ClickHandler handler) {
       return handler == null ? new Button(text) : new Button(text, handler);
     }
 
-    @Override
+    //@Override
     public ButtonBase createMenuButton(String text, ClickHandler handler) {
       return handler == null ? new Button(text) : new Button(text, handler);
     }

@@ -19,7 +19,7 @@ Building
 
 1.1 Build Requirements
 
-* JDK 1.6 (32bit)
+* JDK 1.5 (32bit)
 * Ant 1.6 or greater
 * GWT 1.6.2 or greater (http://code.google.com/p/google-web-toolkit/downloads/list)
 * jMock 2 and Hamcrest 1.1 (core and library) optional - for the unit tests
@@ -35,7 +35,8 @@ location to ant using -Dgwt=</path/to/gwt>).
 Do the same for the "libs" property pointing to a directory containing the jar
 files of jMock, Hamcrest (core and library) and Emma (including emma_ant.jar).
 You will need jMock and Hamcrest to run the unit tests, along with emma if you
-wish to generate the unit test coverage report.
+wish to generate the unit test coverage report. Note, that if you do not have
+the junit jar in your ant's lib path, you may need to add it here as well.
 
 Execute the default ant target with:
   ant
@@ -88,12 +89,15 @@ to run the example. This will startup the hosted mode server and browser.
 2.2 Running From an IDE
 
 An Eclipse launcher is included in this directory for both the example and the
-unit tests. Note, you still need to copy / link gwt-servlet.jar.
+unit tests. Note, you still need to copy / link gwt-servlet.jar. On Mac OS X,
+you will also need to add the following flag to the JVM options of the
+launchers: "-XstartOnFirstThread".
 
 For any other IDE, setup the launcher by following these steps:
   * copy / link gwt-servlet.jar as discussed above
   * make sure the classpath also includes the source, not just compiled code
   * The main class is: com.google.gwt.dev.HostedMode
   * Use the following jvm args: -Xmx512m
+  * On Mac OS X, also use the following jvm args: -XstartOnFirstThread
   * Use the following args: -war src/example/war -startupUrl app.jsp -port auto
        com.example.app.MyMainApp com.example.panel.MyDebugPanel

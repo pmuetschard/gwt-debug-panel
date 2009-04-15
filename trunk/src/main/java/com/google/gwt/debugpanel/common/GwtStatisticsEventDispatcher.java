@@ -29,12 +29,12 @@ import java.util.Map;
  */
 public class GwtStatisticsEventDispatcher implements StatisticsEventDispatcher {
 
-  @Override
+  //@Override
   public boolean enabled() {
     return RemoteServiceProxy.isStatsAvailable();
   }
 
-  @Override
+  //@Override
   public StatisticsEvent newEvent(String system, String group, double millis, String type) {
     Event event = new Event(GWT.getModuleName(), system, group, millis);
     if (type != null) {
@@ -43,17 +43,17 @@ public class GwtStatisticsEventDispatcher implements StatisticsEventDispatcher {
     return event;
   }
 
-  @Override
+  //@Override
   public void setExtraParameter(StatisticsEvent event, String name, String value) {
     ((Event) event).set(name, value);
   }
 
-  @Override
+  //@Override
   public void setExtraParameter(StatisticsEvent event, String name, JavaScriptObject value) {
     ((Event) event).set(name, value);
   }
 
-  @Override
+  //@Override
   public void dispatch(StatisticsEvent event) {
     dispatch0(GwtStatisticsEvent.fromEvent(event));
   }
@@ -77,32 +77,32 @@ public class GwtStatisticsEventDispatcher implements StatisticsEventDispatcher {
       this.params = new HashMap<String, Object>();
     }
 
-    @Override
+    //@Override
     public String getModuleName() {
       return module;
     }
 
-    @Override
+    //@Override
     public String getSubSystem() {
       return system;
     }
 
-    @Override
+    //@Override
     public String getEventGroupKey() {
       return group;
     }
 
-    @Override
+    //@Override
     public double getMillis() {
       return millis;
     }
 
-    @Override
+    //@Override
     public Iterator<String> getExtraParameterNames() {
       return params.keySet().iterator();
     }
 
-    @Override
+    //@Override
     public Object getExtraParameter(String name) {
       return params.get(name);
     }

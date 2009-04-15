@@ -133,7 +133,7 @@ public class GwtCookieModelTest extends AbstractDebugPanelGwtTestCase {
     final String[] changeValues = new String[2];
     final String[] removeValues = new String[1];
     model.addCookieListener(new CookieModelListener() {
-      @Override
+      //@Override
       public void cookieAdded(String name, String value) {
         assertNull(addValues[0]);
         assertNull(addValues[1]);
@@ -141,7 +141,7 @@ public class GwtCookieModelTest extends AbstractDebugPanelGwtTestCase {
         addValues[1] = value;
       }
 
-      @Override
+      //@Override
       public void cookieChanged(String name, String value) {
         assertNull(changeValues[0]);
         assertNull(changeValues[1]);
@@ -149,7 +149,7 @@ public class GwtCookieModelTest extends AbstractDebugPanelGwtTestCase {
         changeValues[1] = value;
       }
 
-      @Override
+      //@Override
       public void cookieRemoved(String name) {
         assertNull(removeValues[0]);
         removeValues[0] = name;
@@ -170,17 +170,17 @@ public class GwtCookieModelTest extends AbstractDebugPanelGwtTestCase {
   }
 
   private static class Listener implements CookieModelListener {
-    @Override
+    //@Override
     public void cookieAdded(String name, String value) {
       fail("Unexpected call to cookieAdded: " + name + ", " + value);
     }
 
-    @Override
+    //@Override
     public void cookieChanged(String name, String value) {
       fail("Unexpected call to cookieChanged: " + name + ", " + value);
     }
 
-    @Override
+    //@Override
     public void cookieRemoved(String name) {
       fail("Unexpected call to cookieRemoved: " + name);
     }

@@ -39,7 +39,7 @@ public class DebugPanelWidget extends Composite {
     initWidget(panel = new SimplePanel());
     panel.setStyleName(Utils.style() + "-panel");
     showLink = new CommandLink("Show Debug Panel", new Command() {
-      @Override
+      //@Override
       public void execute() {
         show(showReset);
       }
@@ -115,12 +115,12 @@ public class DebugPanelWidget extends Composite {
 
         String name = c.getName();
         TogglingCommandLink link = new TogglingCommandLink("Hide " + name, new Command() {
-          @Override
+          //@Override
           public void execute() {
             w.setVisible(false);
           }
         }, "Show " + name, new Command() {
-          @Override
+          //@Override
           public void execute() {
             w.setVisible(true);
           }
@@ -134,7 +134,7 @@ public class DebugPanelWidget extends Composite {
 
       if (showReset) {
         CommandLink link = new CommandLink("Reset", new Command() {
-          @Override
+          //@Override
           public void execute() {
             reset();
           }

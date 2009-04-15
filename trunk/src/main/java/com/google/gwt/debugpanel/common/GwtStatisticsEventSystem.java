@@ -57,7 +57,7 @@ public class GwtStatisticsEventSystem implements StatisticsEventSystem {
     listener.onStatisticsEvent(event.asEvent());
   }
 
-  @Override
+  //@Override
   public void addListener(StatisticsEventListener listener, boolean replay) {
     if (replay) {
       replay(listener);
@@ -75,28 +75,28 @@ public class GwtStatisticsEventSystem implements StatisticsEventSystem {
     }
   }-*/;
 
-  @Override
+  //@Override
   public void removeListener(StatisticsEventListener listener) {
     listeners.remove(listener);
   }
 
 
-  @Override
+  //@Override
   public native void clearEventHistory() /*-{
     $wnd.__stats.length = 0;
   }-*/;
 
-  @Override
+  //@Override
   public Iterator<StatisticsEvent> pastEvents() {
     return new Iterator<StatisticsEvent>() {
       private int idx = 0;
 
-      @Override
+      //@Override
       public void remove() {
         throw new RuntimeException("Illegal operation. Event history is read-only.");
       }
 
-      @Override
+      //@Override
       public boolean hasNext() {
         return hasNext0(idx);
       }
@@ -106,7 +106,7 @@ public class GwtStatisticsEventSystem implements StatisticsEventSystem {
         return stats && (idx < stats.length);
       }-*/;
 
-      @Override
+      //@Override
       public StatisticsEvent next() {
         return next0(idx++).asEvent();
       }
@@ -124,7 +124,7 @@ public class GwtStatisticsEventSystem implements StatisticsEventSystem {
     public Listeners() {
     }
 
-    @Override
+    //@Override
     public void onStatisticsEvent(StatisticsEvent event) {
       for (StatisticsEventListener l : this) {
         l.onStatisticsEvent(event);

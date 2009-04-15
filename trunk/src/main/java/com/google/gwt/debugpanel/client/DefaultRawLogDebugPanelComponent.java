@@ -31,7 +31,7 @@ public class DefaultRawLogDebugPanelComponent extends DelayedDebugPanelComponent
     this.sys = sys;
   }
 
-  @Override
+  //@Override
   public String getName() {
     return "Raw Log";
   }

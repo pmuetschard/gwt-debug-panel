@@ -36,7 +36,7 @@ public class DebugPanelFilterTrail extends Composite {
     initWidget(panel = new HorizontalPanel());
     build(model);
     model.addListener(new DebugPanelFilterModelListener() {
-      @Override
+      //@Override
       public void filterStatusChanged(DebugPanelFilter filter, int idx, boolean active) {
         changeStatus(idx, active);
       }
@@ -80,7 +80,7 @@ public class DebugPanelFilterTrail extends Composite {
       setActive(model.isFilterActive(filter));
       setStyleName(Utils.style() + "-filterTrail-item");
       setCommand(new Command() {
-        @Override
+        //@Override
         public void execute() {
           showPopup(model, filter);
         }
@@ -90,7 +90,7 @@ public class DebugPanelFilterTrail extends Composite {
     protected void showPopup(final DebugPanelFilterModel model, final int filter) {
       popup = new FilterPopup(model, filter);
       popup.setPopupPositionAndShow(new PopupPanel.PositionCallback() {
-        @Override
+        //@Override
         public void setPosition(int offsetWidth, int offsetHeight) {
           popup.setPopupPosition(Item.this.getAbsoluteLeft(),
               Item.this.getAbsoluteTop() + Item.this.getOffsetHeight());

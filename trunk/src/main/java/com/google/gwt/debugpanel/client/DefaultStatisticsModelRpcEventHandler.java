@@ -39,7 +39,7 @@ public class DefaultStatisticsModelRpcEventHandler extends AbstractStatisticsMod
     rpcs = new HashMap<String, RpcTree>();
   }
 
-  @Override
+  //@Override
   public boolean handle(GwtDebugStatisticsModel model, StatisticsEvent event) {
     if (RPC.equals(event.getSubSystem())) {
       String module = event.getModuleName();

@@ -54,10 +54,10 @@ public class DebugPanelFilterWidget extends Composite {
 
     popup = new FilterPopup(model);
     button.addClickHandler(new ClickHandler() {
-      @Override
+      //@Override
       public void onClick(ClickEvent event) {
         popup.setPopupPositionAndShow(new PopupPanel.PositionCallback() {
-          @Override
+          //@Override
           public void setPosition(int offsetWidth, int offsetHeight) {
             popup.setPopupPosition(
                 button.getAbsoluteLeft(), button.getAbsoluteTop() + button.getOffsetHeight());
@@ -84,13 +84,13 @@ public class DebugPanelFilterWidget extends Composite {
       setStyleName(Utils.style() + "-filterPopup");
 
       addCloseHandler(new CloseHandler<PopupPanel>() {
-        @Override
+        //@Override
         public void onClose(CloseEvent<PopupPanel> event) {
           menu.clearSelection();
         }
       });
       menu.addSelectionHandler(new SelectionHandler<Integer>() {
-        @Override
+        //@Override
         public void onSelection(SelectionEvent<Integer> event) {
           show(model, event.getSelectedItem());
         }
@@ -121,7 +121,7 @@ public class DebugPanelFilterWidget extends Composite {
         newItem(i, model.getFilter(i), model.isFilterActive(i));
       }
       model.addListener(new DebugPanelFilterModelListener() {
-        @Override
+        //@Override
         public void filterStatusChanged(DebugPanelFilter filter, int idx, boolean active) {
           ((Item) getWidget(idx)).setActive(active);
         }
@@ -133,7 +133,7 @@ public class DebugPanelFilterWidget extends Composite {
       insert(item, idx);
       item.sinkEvents(Event.ONCLICK);
       item.addClickHandler(new ClickHandler() {
-        @Override
+        //@Override
         public void onClick(ClickEvent event) {
           selectItem(item, idx);
         }

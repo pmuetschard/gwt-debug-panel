@@ -61,7 +61,7 @@ public class XmlDebugPanel extends Composite implements TreeTableModelListener{
     }
   }
 
-  @Override
+  //@Override
   public void nodeAdded(Object parent, Object node, int index) {
     Element parentNode = nodes.get(parent);
     Element childNode = document.createElement("event");
@@ -73,7 +73,7 @@ public class XmlDebugPanel extends Composite implements TreeTableModelListener{
     updateTextArea();
   }
 
-  @Override
+  //@Override
   public void nodeRemoved(Object parent, Object node, int index) {
     Element parentNode = parent == null ? root : nodes.get(parent);
     Element childNode = nodes.get(node);
@@ -82,7 +82,7 @@ public class XmlDebugPanel extends Composite implements TreeTableModelListener{
     updateTextArea();
   }
 
-  @Override
+  //@Override
   public void valueChanged(Object node, int columnIndex) {
     Element element = nodes.get(node);
     element.setAttribute(getAttributeName(columnIndex), getAttributeValue(node, columnIndex));

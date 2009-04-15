@@ -24,7 +24,7 @@ import com.example.app.shared.EchoService;
  * will throw an exception.
  */
 public class EchoServiceImpl extends RemoteServiceServlet implements EchoService {
-  @Override
+  //@Override
   public String echo(String s) {
     if ("error".equalsIgnoreCase(s)) {
       throw new RuntimeException("A Server side error!");

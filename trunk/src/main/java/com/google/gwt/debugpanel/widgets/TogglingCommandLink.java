@@ -39,7 +39,7 @@ public class TogglingCommandLink extends Anchor {
 
     addClickHandler(new ClickHandler() {
 
-      @Override
+      //@Override
       public void onClick(ClickEvent event) {
         toggle();
       }

@@ -45,12 +45,12 @@ public interface DebugPanelFilter {
       this.handlers = new HandlerManager(this);
     }
 
-    @Override
+    //@Override
     public HandlerRegistration addValueChangeHandler(ValueChangeHandler<Config> handler) {
       return handlers.addHandler(ValueChangeEvent.getType(), handler);
     }
 
-    @Override
+    //@Override
     public void fireEvent(GwtEvent<?> event) {
       handlers.fireEvent(event);
     }

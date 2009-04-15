@@ -27,7 +27,7 @@ public class DefaultCookieDebugPanelComponent extends DelayedDebugPanelComponent
   public DefaultCookieDebugPanelComponent() {
   }
 
-  @Override
+  //@Override
   public String getName() {
     return "Cookies";
   }

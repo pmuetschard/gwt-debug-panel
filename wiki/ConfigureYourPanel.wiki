@@ -1,5 +1,7 @@
 #summary How to configure your GWT Debug Panel.
 
+<wiki:toc max_depth="3" />
+
 =Configure, Configure, Configure=
 
 There are three ways to configure and tweak how and what the GWT Debug Panel will display:
@@ -8,6 +10,8 @@ There are three ways to configure and tweak how and what the GWT Debug Panel wil
    # The `com.google.gwt.debugpanel.common.Utils.Util` interface
 
 The first is required, the second is highly recommended (without a style sheet the panel doesn't look very good and the filtering is broken) and the third is optional.
+
+----
 
 ==The Module Entry Point==
 
@@ -31,9 +35,13 @@ In the `onModuleLoad()` method, create and initialize all the components you wis
 
 Now that all components are initialized create a `DebugPanelWidget` and add insert it into the DOM. It is a good idea to add a `div` to the host HTML page where you wish to insert the GWT Debug Panel and locate it with `RootPanel.get("name")`.
 
+----
+
 ==The CSS Stylesheet==
 
 The best way to design your own styles is to copy the [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/example/war/debug-panel.css CSS file from the example] and adjust the values. All the classes used by the GWT Debug Panel code are found in the example file, which also contains comments documenting what they are for.
+
+----
 
 ==The Utils.Util Interface==
 

@@ -46,7 +46,7 @@ At this point, your host HTML page only includes your main application. In order
 
 ===Including the Panel's Bootstrap Code===
 
-Simply add another `script` tag to the `head` tag of your host HTML file that points the _Module_.nocache.js file of your panel (i.e. DebugPanel/DebugPanel.nocache.js). You may wish to compile your application so see what the exact path is.
+Simply add another `script` tag to the `head` tag of your host HTML file that points the _Module_.nocache.js file of your panel (i.e. `DebugPanel/DebugPanel.nocache.js`). You may wish to compile your application so see what the exact path is.
 
 ===The Glue Snippet===
 

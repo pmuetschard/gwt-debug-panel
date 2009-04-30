@@ -142,6 +142,36 @@ under the License.
     </javac>
   </target>
 
+  <target name="deploy.example" depends="gwtcompile.example"
+      description="Deploys the example application into a WAR file.">
+    <war
+        destfile="build/example.war"
+        webxml="src/example/war/WEB-INF/web.xml">
+      <fileset dir="src/example/war">
+        <include name="*.jsp" />
+        <include name="*.css" />
+      </fileset>
+      <fileset dir="build/war/" />
+      <lib file="${gwt}/gwt-servlet.jar" />
+      <classes dir="build/example" />
+    </war>
+  </target>
+
+  <target name="gwtcompile.example" depends="compile.example">
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+      <classpath>
+        <path refid="build.classpath"/>
+        <pathelement location="src/example/java" />
+        <pathelement path="build/gwt-debug-panel-${version}.jar" />
+      </classpath>
+      <jvmarg value="-Xmx256M" />
+      <arg value="-war" />
+      <arg value="build/war" />
+      <arg value="com.example.app.MyMainApp" />
+      <arg value="com.example.panel.MyDebugPanel" />
+    </java>
+  </target>
+
   <taskdef resource="emma_ant.properties" classpathref="build.classpath" />
 
   <target name="coverage" depends="compile.tests"

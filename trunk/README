@@ -12,6 +12,7 @@ Contents
   2   Running the Example
   2.1 Running From the Command Line
   2.2 Running From an IDE
+  2.3 Deploying the Example As a WAR File
 
 
 Building
@@ -76,14 +77,13 @@ There is an example included in the source repository, in src/example, that
 shows how to integrate the debug panel with a GWT web application. The example
 shows the preferred approach, where the debug panel is run within it's own
 GWT application / module, separate from the main application. This allows for
-you to turn off the debug panel for user facing sessions - including not
-including the code in your JavaScript.
+you to turn off the debug panel for user facing sessions - where the panel's
+JavaScirpt is not included in your application's JavaScript.
 
 2.1 Running From the Command Line
 
 See "Building From the Command Line" for instructions on how to setup the build
-environment. Then, copy or link gwt-servlet.jar from the GWT directory into the
-src/example/war/WEB-INF/lib directory.
+environment.
 
 Once setup, you can simply execute 
   ant example
@@ -92,9 +92,8 @@ to run the example. This will startup the hosted mode server and browser.
 2.2 Running From an IDE
 
 An Eclipse launcher is included in this directory for both the example and the
-unit tests. Note, you still need to copy / link gwt-servlet.jar. On Mac OS X,
-you will also need to add the following flag to the JVM options of the
-launchers: "-XstartOnFirstThread".
+unit tests. On Mac OS X, you will also need to add the following flag to the
+JVM options of the launchers: "-XstartOnFirstThread".
 
 For any other IDE, setup the launcher by following these steps:
   * copy / link gwt-servlet.jar as discussed above
@@ -104,3 +103,13 @@ For any other IDE, setup the launcher by following these steps:
   * On Mac OS X, also use the following jvm args: -XstartOnFirstThread
   * Use the following args: -war src/example/war -startupUrl app.jsp -port auto
        com.example.app.MyMainApp com.example.panel.MyDebugPanel
+
+2.3 Deploying the Example As a WAR File
+
+See "Building From the Command Line" for instructions on how to setup the build
+environment.
+
+Once setup, you can simply execute 
+  ant deploy.example
+to build the WAR file in build/example.war, which you can then deploy to your
+web application server.

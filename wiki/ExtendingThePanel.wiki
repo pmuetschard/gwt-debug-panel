@@ -1,14 +1,10 @@
 #summary Learn how you can extend the GWT Debug Panel to show data specific to your application.
-#labels Featured
 
-= Introduction =
+_Under Construction_
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+You can
+   * extend the main panel's view (see [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/main/java/com/google/gwt/debugpanel/widgets/GwtDebugStatisticsView.java GwtDebugStatisticsView] to see how to extend the [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/main/java/com/google/gwt/debugpanel/widgets/DebugStatisticsView.java DebugStatisticsView])
+   * extend the main panel's model (see [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/main/java/com/google/gwt/debugpanel/models/GwtDebugStatisticsModel.java GwtDebugStatisticsModel.EventHandler] and implementation thereof: [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/main/java/com/google/gwt/debugpanel/client/DefaultStatisticsModelRpcEventHandler.java DefaultStatisticsModelRpcEventHandler] and [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/main/java/com/google/gwt/debugpanel/client/DefaultStatisticsModelStartupEventHandler.java DefaultStatisticsModelStartupEventHandler])
+   * extend the main widget (see [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/main/java/com/google/gwt/debugpanel/widgets/DebugPanelWidget.java DebugPanelWidget.Component])
+   * raise your own events in the main application with the [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/main/java/com/google/gwt/debugpanel/common/StatisticsEventDispatcher.java StatisticsEventDispatcher] and create your own view to display the data of those events (see the example's [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/example/java/com/example/app/client/ExceptionHandler.java ExceptionHandler] and the [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/main/java/com/google/gwt/debugpanel/models/ExceptionModel.java ExceptionModel] and its view [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/src/main/java/com/google/gwt/debugpanel/widgets/ExceptionView.java ExceptionView])
+   * ...

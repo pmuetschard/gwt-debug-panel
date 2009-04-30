@@ -109,6 +109,7 @@ under the License.
       description="Runs the example in hosted mode.">
     <java failonerror="true" fork="true" classname="com.google.gwt.dev.HostedMode">
       <classpath>
+        <pathelement path="${gwt}/gwt-servlet.jar" />
         <path refid="build.classpath" />
         <pathelement path="build/example" />
         <pathelement path="build/gwt-debug-panel-${version}.jar" />

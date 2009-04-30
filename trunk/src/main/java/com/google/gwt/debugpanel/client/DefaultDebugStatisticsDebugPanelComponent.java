@@ -47,10 +47,14 @@ public class DefaultDebugStatisticsDebugPanelComponent implements DebugPanelWidg
 
   protected GwtDebugStatisticsView getView() {
     if (view == null) {
-      view = new GwtDebugStatisticsView(model,
-          new GwtDebugPanelFilterModel(GwtDebugPanelFilters.getFilters()));
+      view = createView();
     }
     return view;
+  }
+
+  protected GwtDebugStatisticsView createView() {
+    return new GwtDebugStatisticsView(model,
+        new GwtDebugPanelFilterModel(GwtDebugPanelFilters.getFilters()));
   }
 
   //@Override

@@ -65,10 +65,9 @@ public class Utils {
     public String getStylePrefix();
     public double currentTimeMillis();
     public String formatDate(double time);
+    public String formatClassName(String className);
     public ButtonBase createTextButton(String text, ClickHandler handler);
     public ButtonBase createMenuButton(String text, ClickHandler handler);
-
-    public String formatClassName(String className);
   }
 
   /**

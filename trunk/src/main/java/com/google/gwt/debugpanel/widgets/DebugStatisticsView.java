@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * View that shows the statistics from a {@link DebugStatisticsView}.
+ * View that shows the statistics from a {@link DebugStatisticsModel}.
  */
 public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extends Composite
     implements TreeTableModel, DebugStatisticsModelListener<T> {

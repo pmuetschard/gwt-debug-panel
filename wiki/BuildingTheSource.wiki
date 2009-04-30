@@ -59,11 +59,9 @@ All the build artifacts will be located in the `build` folder.
 
 At this point, the project should compile without any errors. There are also two launch targets included in the trunk:
 
-   * DebugPanelTests - this will run the tests
-   * DebugPanelExample - this will run the example in hosted mode
+   * !DebugPanelTests - this will run the tests
+   * !DebugPanelExample - this will run the example in hosted mode
 
 On Mac Os X you will need to add `-XstartOnFirstThread` to the JVM args of the launchers.
-
-
 
 

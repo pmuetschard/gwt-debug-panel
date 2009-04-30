@@ -22,7 +22,7 @@ under the License.
 
   <!-- Default page to serve -->
   <welcome-file-list>
-    <welcome-file>app.html</welcome-file>
+    <welcome-file>app.jsp</welcome-file>
   </welcome-file-list>
   
   <!-- Servlets -->

@@ -23,4 +23,18 @@ under the License.
   <source path="shared" />
 
   <entry-point class="com.example.app.client.MyMainApp" />
+
+  <define-property name="simulate.echo" values="no,yes" />
+  <property-provider name="simulate.echo">
+    <![CDATA[
+      return __gwt_getMetaProperty("simulate.echo") || "no";
+    ]]>
+  </property-provider>  
+
+  <!-- Allow the usage of the SimulatedEchoService -->
+  <replace-with class="com.example.app.client.SimulatedEchoService">
+    <when-type-is class="com.example.app.shared.EchoService" />
+    <when-property-is name="simulate.echo" value="yes" />
+  </replace-with>
+
 </module>

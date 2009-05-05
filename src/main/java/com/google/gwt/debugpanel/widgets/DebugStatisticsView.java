@@ -192,6 +192,7 @@ public abstract class DebugStatisticsView<T extends DebugStatisticsValue> extend
     Node<T> node = nodes.get(key);
     node.setValue(value);
 
+    refilter(rootNode, true);
     if (!node.isFiltered()) {
       for (int i = 0; i < getColumnCount(); i++) {
         listeners.valueChanged(node, i);

@@ -46,7 +46,7 @@ All the build artifacts will be located in the `build` folder.
 
 ----
 
-==Building From Exclipse==
+==Building From Eclipse==
 
    # Ensure that you have a 32-bit 1.5 (or better) JRE installed for Eclipse (Check Window -> Preferrences, Java -> Installed JREs)
    # [http://code.google.com/p/gwt-debug-panel/source/checkout Checkout] the trunk
@@ -63,5 +63,3 @@ At this point, the project should compile without any errors. There are also two
    * !DebugPanelExample - this will run the example in hosted mode
 
 On Mac Os X you will need to add `-XstartOnFirstThread` to the JVM args of the launchers.
-
-

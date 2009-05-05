@@ -36,7 +36,7 @@ under the License.
   <path id="build.classpath">
     <pathelement location="${gwt}/gwt-user.jar" />
     <fileset dir="${gwt}" includes="gwt-dev*.jar" />
-    <fileset dir="${libs}" includes="*.jar" />
+    <fileset dir="." includes="${libs}/*.jar" />
   </path>
 
   <target name="clean" description="Cleans the workspace of all build artifacts">
@@ -173,10 +173,11 @@ under the License.
     </java>
   </target>
 
-  <taskdef resource="emma_ant.properties" classpathref="build.classpath" />
 
   <target name="coverage" depends="compile.tests"
       description="Runs the tests and produces a coverage report">
+    <taskdef resource="emma_ant.properties" classpathref="build.classpath" />
+
     <property name="coverage.dir" value="build/coverage" />
     <property name="out.instr.dir" value="${coverage.dir}/classes" />
     <mkdir dir="${out.instr.dir}" />

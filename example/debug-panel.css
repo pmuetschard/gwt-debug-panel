@@ -17,8 +17,6 @@ under the License.
 /* This is the div containing the entire panel. */
 div.DebugPanel-panel {
   padding: 5px;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 /* All the action links like show this, hide that, etc... */

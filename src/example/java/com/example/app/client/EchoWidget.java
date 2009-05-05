@@ -15,7 +15,6 @@
  */
 package com.example.app.client;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -33,8 +32,7 @@ import com.example.app.shared.EchoServiceAsync;
  * A simple widget that allows the invocation of the {@link EchoService}.
  */
 public class EchoWidget extends Composite {
-  public EchoWidget(final ExceptionHandler handler) {
-    final EchoServiceAsync service = GWT.create(EchoService.class);
+  public EchoWidget(final EchoServiceAsync service, final ExceptionHandler handler) {
     final Grid grid = new Grid(3, 2);
     final TextBox box = new TextBox();
 

@@ -16,9 +16,13 @@
 package com.example.app.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.debugpanel.common.GwtExceptionSerializer;
 import com.google.gwt.debugpanel.common.GwtStatisticsEventDispatcher;
 import com.google.gwt.user.client.ui.RootPanel;
+
+import com.example.app.shared.EchoService;
+import com.example.app.shared.EchoServiceAsync;
 
 /**
  * The main application's entry point.
@@ -27,8 +31,10 @@ public class MyMainApp implements EntryPoint {
 
   //@Override
   public void onModuleLoad() {
+    final EchoServiceAsync service = GWT.create(EchoService.class);
     RootPanel.get("contents").add(
         new EchoWidget(
+            service,
             new ExceptionHandler(
                 new GwtStatisticsEventDispatcher(),
                 new GwtExceptionSerializer()

@@ -1,0 +1,30 @@
+<!-- 
+Copyright 2009 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+-->
+<module rename-to="DebugPanel">
+  <inherits name="com.google.gwt.user.User" />
+
+  <!-- Since this will be the panel itself, inhert from the panel module -->
+  <inherits name="com.google.gwt.debugpanel.DebugPanel" />
+
+  <source path="client" />
+
+  <entry-point class="com.example.panel.client.MyDebugPanel" />
+
+  <!-- Provide our own custom implementation of the Utilities class -->
+  <replace-with class="com.example.panel.client.MyUtil">
+    <when-type-assignable class="com.google.gwt.debugpanel.common.Utils.Util"/>
+  </replace-with>
+</module>

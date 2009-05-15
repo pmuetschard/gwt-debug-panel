@@ -1,0 +1,115 @@
+The Google Web Toolkit Debug Panel
+==================================
+
+Contents
+--------
+
+  1   Building
+  1.1 Build Requirements
+  1.2 Building From the Command Line
+  1.3 Building From an IDE
+
+  2   Running the Example
+  2.1 Running From the Command Line
+  2.2 Running From an IDE
+  2.3 Deploying the Example As a WAR File
+
+
+Building
+---------
+
+1.1 Build Requirements
+
+* JDK 1.5 (32bit)
+* Ant 1.6 or greater
+* GWT 1.6.2 or greater (http://code.google.com/p/google-web-toolkit/downloads/list)
+* jMock 2 and Hamcrest 1.1 (core and library) optional - for the unit tests
+* Emma optional - for coverage
+
+1.2 Building From the Command Line
+
+Either create a link in this directory named "gwt" pointing to the location
+where you have installed GWT, or edit the build file and change the gwt
+property to point to the GWT location. (Note, you can also just pass the
+location to ant using -Dgwt=</path/to/gwt>).
+
+Do the same for the "libs" property pointing to a directory containing the jar
+files of jMock, Hamcrest (core and library) and Emma (including emma_ant.jar).
+You will need jMock and Hamcrest to run the unit tests, along with emma if you
+wish to generate the unit test coverage report. Note, that if you do not have
+the junit jar in your ant's lib path, you may need to add it here as well.
+
+Execute the default ant target with:
+  ant
+
+The default target will compile all the code, create the package and run the
+unit tests.
+
+Use the following command to see other available targets
+  ant -projecthelp
+
+When built, the jar file can be found in the build directory.
+
+1.3 Building From an IDE
+
+Eclipse project settings are included in this directory. Note that you may have
+to manually add/adjust the dependency libraries. The settings assume you have
+the Google Plugin for Eclipse installed (http://code.google.com/eclipse/),
+however, you can simply replace the GWT SDK build path library with references
+to your GWT libraries.
+
+For any other IDE, make sure you have the JUnit, GWT and other libraries
+mentioned above in your project's build classpath and then add the following
+folders to the project's source path:
+
+  - src/main/java
+  - src/main/test
+  - src/example/java
+
+Note, when running the tests from within the IDE, make sure to add the source
+folders to the classpath so that GWT can find the source files.
+
+
+Running the Example
+-------------------
+
+There is an example included in the source repository, in src/example, that
+shows how to integrate the debug panel with a GWT web application. The example
+shows the preferred approach, where the debug panel is run within it's own
+GWT application / module, separate from the main application. This allows for
+you to turn off the debug panel for user facing sessions - where the panel's
+JavaScirpt is not included in your application's JavaScript.
+
+2.1 Running From the Command Line
+
+See "Building From the Command Line" for instructions on how to setup the build
+environment.
+
+Once setup, you can simply execute 
+  ant example
+to run the example. This will startup the hosted mode server and browser.
+
+2.2 Running From an IDE
+
+An Eclipse launcher is included in this directory for both the example and the
+unit tests. On Mac OS X, you will also need to add the following flag to the
+JVM options of the launchers: "-XstartOnFirstThread".
+
+For any other IDE, setup the launcher by following these steps:
+  * copy / link gwt-servlet.jar as discussed above
+  * make sure the classpath also includes the source, not just compiled code
+  * The main class is: com.google.gwt.dev.HostedMode
+  * Use the following jvm args: -Xmx512m
+  * On Mac OS X, also use the following jvm args: -XstartOnFirstThread
+  * Use the following args: -war src/example/war -startupUrl app.jsp -port auto
+       com.example.app.MyMainApp com.example.panel.MyDebugPanel
+
+2.3 Deploying the Example As a WAR File
+
+See "Building From the Command Line" for instructions on how to setup the build
+environment.
+
+Once setup, you can simply execute 
+  ant deploy.example
+to build the WAR file in build/example.war, which you can then deploy to your
+web application server.

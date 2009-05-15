@@ -15,7 +15,7 @@ License for the specific language governing permissions and limitations
 under the License.
 -->
 <project name="GWT Debug Panel" default="build" basedir=".">
-  <property name="version" value="0.0.1" />
+  <property name="version" value="1.0" />
 
   <!-- Configure path to GWT SDK -->
   <property name="gwt" location="gwt" />

@@ -35,7 +35,7 @@ To build the project you will need
          * Edit the `build.xml` file and set the `libs` property to where you created the folder
          * Pass the `-Dlibs=</path/to/folder>` flag on each of the below ant calls
    # Execute `ant -p` to get info on the project's targets
-      * `ant package` will build the GWT Debug Panel package
+      * `ant package` will build the Debug Panel package
       * `ant test` will execute the tests
       * `ant build` (default) will build the package as well as execute the tests
       * `ant example` will run the example in hosted mode

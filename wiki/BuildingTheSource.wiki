@@ -4,7 +4,7 @@
 
 =Building the Source=
 
-This document explains how to setup the build environment to build the GWT Debug Panel distributable from the SVN source tree. The source tree contains an [http://ant.apache.org/ Ant] build file, as well as [http://www.eclipse.org/ Eclipse] project settings that allow you to easy build the project.
+This document explains how to setup the build environment to build the Debug Panel distributable from the SVN source tree. The source tree contains an [http://ant.apache.org/ Ant] build file, as well as [http://www.eclipse.org/ Eclipse] project settings that allow you to easy build the project.
 
 There is a [http://code.google.com/p/gwt-debug-panel/source/browse/trunk/README README] file included in the source tree, which contains the same information.
 

@@ -416,7 +416,7 @@ public class TreeTable extends Composite {
       div.appendChild(this.image);
       div.appendChild(this.label);
 
-   	  div.getStyle().setPropertyPx("marginLeft", level * 16);
+      div.getStyle().setPropertyPx("marginLeft", level * 16);
       image.getStyle().setProperty("verticalAlign", "bottom");
 
       setElement(div);

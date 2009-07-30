@@ -39,7 +39,7 @@ div.DebugPanel-panel {
 }
 
 .DebugPanel-TreeTable-header {
-  background-color: lightgray;
+  background-color: #d3d3d3;
   font-weight: bold;
 }
 
@@ -161,7 +161,7 @@ div.DebugPanel-panel {
 }
 
 .DebugPanel-logHeader td {
-  background-color: lightgray;
+  background-color: #d3d3d3;
   font-weight: bold;
 }
 
@@ -178,7 +178,7 @@ div.DebugPanel-panel {
 }
 
 .DebugPanel-cookiesHeader {
-  background-color: lightgray;
+  background-color: #d3d3d3;
   font-weight: bold;
 }
 
@@ -196,7 +196,7 @@ div.DebugPanel-panel {
 }
 
 .DebugPanel-errorsHeader {
-  background-color: lightgray;
+  background-color: #d3d3d3;
   font-weight: bold;
 }
 
